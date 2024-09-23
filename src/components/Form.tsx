@@ -9,10 +9,8 @@ type FormProps = {
     state: ActivityState
 }
 
-let id = crypto.randomUUID()
-
 const initialState = {
-    id: id,
+    id: crypto.randomUUID(),
     category: 1,
     name: '',
     calories: 0
@@ -46,12 +44,12 @@ export default function Form({ dispatch, state }: FormProps) {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-
+    
         dispatch({ type: 'save-activity', payload: { newActivity: activity } })
-
+    
         setActivity({
             ...initialState,
-            id: crypto.randomUUID()
+            id: crypto.randomUUID() 
         })
     }
 
